@@ -1,62 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include_once 'templates/head.php' ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <section>
-        <a class="button btn-back" href="index.php">Back</a>
+    <section class="form-user">
+        <h1>Formulário do Usuário</h1>
 
         <form action="index.php" method="POST">
 
-        
             <div class="input-box">
                 <label for="email">E-mail: </label>
-                <input type="email" name="email" id="email" value="<?= isset($user['email']) ? $user['email'] : '' ?>"
-                    placeholder="Digite seu e-mail" required>
+                <input type="email" name="email" id="email" placeholder="Digite seu e-mail" required
+                    value="<?= isset($user['email']) ? $user['email'] : '' ?>">
             </div>
 
             <div class="input-box">
                 <label for="firstName">Nome: </label>
-                <input type="text" name="firstName" id="firstName"
-                    value="<?= isset($user['firstName']) ? $user['firstName'] : '' ?>" placeholder="Digite seu nome"
-                    required>
+                <input type="text" name="firstName" id="firstName" placeholder="Digite seu nome" required
+                    value="<?= isset($user['firstName']) ? $user['firstName'] : '' ?>">
             </div>
 
             <div class="input-box">
                 <label for="lastName">Sobrenome: </label>
-                <input type="text" name="lastName" id="lastName"
-                    value="<?= isset($user['lastName']) ? $user['lastName'] : '' ?>" placeholder="Digite seu sobrenome"
-                    required>
+                <input type="text" name="lastName" id="lastName" placeholder="Digite seu sobrenome" required
+                    value="<?= isset($user['lastName']) ? $user['lastName'] : '' ?>">
             </div>
 
             <div class="input-box">
                 <label for="phone">Telefone: </label>
-                <input type="text" name="phone" id="phone" value="<?= isset($user['phone']) ? $user['phone'] : '' ?>"
-                    placeholder="Digite seu telefone" required>
+                <input type="tel" name="phone" id="phone" placeholder="(DD) _____-____" maxlength="15" required
+                    value="<?= isset($user['phone']) ? $user['phone'] : '' ?>">
             </div>
-
 
             <div class="input-box">
                 <label for="birth_date">Data de Nascimento: </label>
-                <input type="date" name="birth_date" id="birth_date"
-                    value="<?= isset($user['birth_date']) ? $user['birth_date'] : '' ?>"
-                    placeholder="Digite sua data de nascimento" required>
+                <input type="date" name="birth_date" id="birth_date" min="1950-01-01" max="<?= date('Y-m-d') ?>"
+                    placeholder="Digite sua data de nascimento" required
+                    value="<?= isset($user['birth_date']) ? $user['birth_date'] : '' ?>">
             </div>
 
+            <input type="hidden" name="a" value="<?= isset($user['id']) ? 'updateUser' : 'insertUser' ?>">
+            <input type="hidden" name="id" value="<?= isset($user['id']) ? $user['id'] : '' ?>">
 
-            <input type="" name="a" value="<?= isset($user['id']) ? 'updateUser' : 'insertUser' ?>">
-            <input type="" name="id" value="<?= isset($user['id']) ? $user['id'] : '' ?>">
-            <input class="button btn-search" type="submit" name="submit" value="Submit">
+            <div class="btn-container">
+                <input class="button btn-submit" type="submit" name="submit"
+                    value="<?= isset($user['id']) ? 'Editar' : 'Salvar' ?>" />
+                <a class="button btn-cancel" href="./index.php">
+                    Cancelar
+                </a>
+            </div>
 
         </form>
 
-
     </section>
-</body>
 
-</html>
+<?php include_once 'templates/footer.php' ?>
