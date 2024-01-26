@@ -22,7 +22,7 @@ inputPhone.addEventListener("input", function (e) {
     )}`;
   }
   if (phoneNumber.length > 9) {
-    phoneNumber = `${phoneNumber.substring(0, 9)}-${phoneNumber.substring(9)}`;
+    phoneNumber = `${phoneNumber.substring(0, 10)}-${phoneNumber.substring(10)}`;
   }
   inputPhone.value = phoneNumber;
 });
