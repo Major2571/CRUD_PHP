@@ -1,7 +1,8 @@
 <?php include_once 'templates/head.php' ?>
 
     <section class="form-user">
-        <h1>Formulário do Usuário</h1>
+        
+        <h1><?= $title = $user['id'] ? 'Edição de Usuário' : 'Adicione um Usuário' ?></h1>
 
         <form action="index.php" method="POST">
 
